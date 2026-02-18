@@ -1,17 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
+from datetime import timedelta
+import random
+
 
 class User(AbstractUser):
     email = models.EmailField(unique=True)
     avatar = models.ImageField(upload_to="avatars/", blank=True, null=True)
-
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]  # keeps admin happy
 
 
-from django.utils import timezone
-from datetime import timedelta
-import random
 
 class EmailOTP(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="otps")
@@ -25,7 +25,7 @@ class EmailOTP(models.Model):
         return f"{random.randint(0, 999999):06d}"
 
     @staticmethod
-    def expiry_time(minutes=5):
+    def expiry_time(minutes=1):
         return timezone.now() + timedelta(minutes=minutes)
 
     def is_expired(self):

@@ -7,6 +7,8 @@ from .services import send_otp_email
 
 User = get_user_model()
 
+
+
 class RegisterSerializer(serializers.Serializer):
     email = serializers.EmailField()
     username = serializers.CharField()
@@ -108,3 +110,12 @@ class LoginSerializer(serializers.Serializer):
             "access": str(refresh.access_token),
             "refresh": str(refresh),
         }
+
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["id", "email", "username", "avatar"]
+        read_only_fields = ["id", "email"]
+

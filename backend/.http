@@ -1,0 +1,137 @@
+
+
+@base_url = http://localhost:8000
+
+### User Registration
+POST {{base_url}}/users/register/
+Content-Type: application/json
+
+{
+    "email": "karim03188@gmail.com",
+    "username": "karimkhan",
+    "password": "NewStrangerPassword123"
+}
+
+### OTP Verification
+POST {{base_url}}/users/verify-otp/
+Content-Type: application/json
+
+{
+    "email": "karim03188@gmail.com",
+    "code": "375662"
+}
+
+########
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcxMzg5ODM0LCJpYXQiOjE3NzEzODk3NzQsImp0aSI6Ijg4MTVlYTFmNTM2MDQ5OTJiNGUyMmFjYWZiZWExYjBlIiwidXNlcl9pZCI6IjEifQ.66LJ_xFBaq3umSdZ-J7GAx88Wu1ce9e8ZDokhvfrOec
+@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc3MTQ3NjE3NCwiaWF0IjoxNzcxMzg5Nzc0LCJqdGkiOiIyNWI2ZjcyMTg5MzA0ZDk2ODM3OTBmMDYxYjFmZGRkNyIsInVzZXJfaWQiOiIxIn0.dwBEaWtVU3YW3clFVQn3INPUNY_uPp7bA_ChGMKJ32M
+
+
+### Resend OTP
+POST {{base_url}}/users/resend-otp/
+Content-Type: application/json
+
+{
+    "email": "karim03188@gmail.com"
+}
+
+### User Login
+POST {{base_url}}/users/login/
+Content-Type: application/json
+
+{
+    "email": "karim03188@gmail.com",
+    "password": "NewStrangerPassword123"
+}
+
+### Logout (JWT Blacklist)
+POST {{base_url}}/users/logout/
+Content-Type: application/json
+Authorization: Bearer your_access_token
+
+{
+    "refresh": "your_refresh_token"
+}
+
+### Password Reset Request
+POST {{base_url}}/users/password-reset/
+Content-Type: application/json
+
+{
+    "email": "karim03188@gmail.com"
+}
+
+### Password Reset Confirm
+POST {{base_url}}/users/password-reset-confirm/{uidb64}/{token}/
+Content-Type: application/json
+
+{
+    "password": "NewStrangerPassword123"
+}
+
+
+
+
+
+
+### Update Profile
+PUT {{base_url}}/users/profile/
+Content-Type: application/json
+Authorization: Bearer your_access_token
+
+{
+    "username": "karimkhan",
+    "avatar": null
+}
+
+# Profile (get/update)
+### Get Profile
+GET {{base_url}}/users/profile/
+Authorization: Bearer your_access_token
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Get Todos (list)
+GET {{base_url}}/todo/todos/
+Authorization: Bearer your_access_token
+
+### Create Todo
+POST {{base_url}}/todo/todos/
+Content-Type: application/json
+Authorization: Bearer your_access_token
+
+{
+    "title": "Test Todo",
+    "description": "This is a test todo."
+}
+
+### Update Todo
+PUT {{base_url}}/todo/todos/1/
+Content-Type: application/json
+Authorization: Bearer your_access_token
+
+{
+    "title": "Updated Todo",
+    "description": "Updated description.",
+    "completed": true
+}
+
+### Delete Todo
+DELETE {{base_url}}/todo/todos/1/
+Authorization: Bearer your_access_token
+# todo 
+
+
+
