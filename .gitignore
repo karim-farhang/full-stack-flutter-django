@@ -1,0 +1,47 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!README.md
+!lib/
+!pubspec.yaml
+!pubspec.lock
+!analysis_options.yaml
+!test/
+!web/
+!android/
+!ios/
+!linux/
+!macos/
+!windows/
+
+# Don't ignore source code and config
+!lib/**
+!test/**
+!web/**
+!android/**
+!ios/**
+!linux/**
+!macos/**
+!windows/**
+
+# But ignore build outputs and IDE files
+.dart_tool/
+build/
+.idea/
+.vscode/
+*.iml
+
+# Flutter generated
+flutter_export_environment.sh
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+ios/Flutter/ephemeral/
+macos/Flutter/ephemeral/
+
+# System files
+.DS_Store
+Thumbs.db
