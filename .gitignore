@@ -1,47 +1,69 @@
-# Ignore everything
-*
-
-# But not these files...
-!.gitignore
-!README.md
-!lib/
-!pubspec.yaml
-!pubspec.lock
-!analysis_options.yaml
-!test/
-!web/
-!android/
-!ios/
-!linux/
-!macos/
-!windows/
-
-# Don't ignore source code and config
-!lib/**
-!test/**
-!web/**
-!android/**
-!ios/**
-!linux/**
-!macos/**
-!windows/**
-
-# But ignore build outputs and IDE files
-.dart_tool/
-build/
-.idea/
-.vscode/
-*.iml
-
-# Flutter generated
-flutter_export_environment.sh
-android/.gradle/
-android/app/build/
-android/build/
-android/local.properties
-ios/Flutter/ephemeral/
-macos/Flutter/ephemeral/
-
-# System files
+############################################
+# Root
+############################################
 .DS_Store
 Thumbs.db
+
+############################################
+# Backend (Django / Python) - scoped to backend/
+############################################
+backend/**/__pycache__/
+backend/**/*.py[cod]
+backend/**/*.log
+backend/.env
+backend/.venv/
+backend/venv/
+backend/env/
+backend/ENV/
+backend/db.sqlite3
+backend/media/
+backend/staticfiles/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.coverage
+backend/htmlcov/
+backend/.tox/
+backend/.nox/
+backend/.ruff_cache/
+backend/**/.idea/
+backend/**/.vscode/
+
+# If you use migrations, DO NOT ignore them.
+# If you want to ignore them, uncomment these two lines (not recommended):
+# backend/**/migrations/
+# !backend/**/migrations/__init__.py
+
+############################################
+# Mobile (Flutter) - scoped to mobile/
+############################################
+mobile/.dart_tool/
+mobile/build/
+mobile/.idea/
+mobile/.vscode/
+mobile/*.iml
+
+# Flutter platform build outputs / ephemeral
+mobile/android/.gradle/
+mobile/android/app/build/
+mobile/android/build/
+mobile/android/local.properties
+
+mobile/ios/Pods/
+mobile/ios/.symlinks/
+mobile/ios/Flutter/ephemeral/
+mobile/ios/Flutter/.last_build_id
+
+mobile/macos/Flutter/ephemeral/
+mobile/linux/flutter/ephemeral/
+mobile/windows/flutter/ephemeral/
+mobile/web/.last_build_id
+
+# Optional: coverage
+mobile/coverage/
+
+############################################
+# VS Code / JetBrains at repo root (optional)
+############################################
+.vscode/
+.idea/
+*.iml
